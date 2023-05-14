@@ -6,5 +6,66 @@
     <body>
         <h1>Login Successful</h1>
         <p>Welcome, {{ username }}!</p>
+
+        <form method="POST" action="{{ url_for('secpage') }}">
+            <label for="client_code">Код клиента:</label>
+            <br>
+            <input type="text" id="client_code" name="client_code">
+            <br>
+            <label for="fio">ФИО:</label>
+            <br>
+            <input type="text" id="fio" name="fio">
+            <br>
+            <label for="address">Адресс:</label>
+            <br>
+            <input type="text" id="address" name="address">
+            <br>
+            <label for="phone">Телефон:</label>
+            <br>
+            <input type="text" id="phone" name="phone">
+            <br>
+            <label for="email">Email:</label>
+            <br>
+            <input type="text" id="email" name="email">
+            <br>
+            <label for="other_data">Примечание:</label>
+            <br>
+            <input type="text" id="other_data" name="other_data">
+            <br>
+            <label for="animal_code">Код животного:</label>
+            <br>
+            <input type="text" id="animal_code" name="animal_code">
+            <br>
+            <label for="kind">Вид:</label>
+            <br>
+            <input type="text" id="kind" name="kind">
+            <br>
+            <label for="poroda">Порода:</label>
+            <br>
+            <input type="text" id="poroda" name="poroda">
+            <br>
+            <label for="klichka">Кличка:</label>
+            <br>
+            <input type="text" id="klichka" name="klichka">
+            <br>
+            <label for="sex">Пол:</label>
+            <br>
+            <input type="text" id="sex" name="sex">
+            <br>
+            <label for="bday">День Рождения:</label>
+            <br>
+            <input type="text" id="bday" name="bday">
+            <br>
+            <label for="color">Окрас:</label>
+            <br>
+            <input type="text" id="color" name="color">
+            <br>
+            <label for="info">Примечание:</label>
+            <br>
+            <input type="text" id="info" name="info">
+            <br>
+            <input type="submit" value="Отправить">
+        </form>
+        
     </body>
 </html>

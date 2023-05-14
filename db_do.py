@@ -13,7 +13,7 @@ conn = get_db_connection()
 
 cur = conn.cursor()
 
-# cur.execute('DROP TABLE IF EXISTS dns_flags;')
+cur.execute('DROP TABLE IF EXISTS clients;')
 #Клиенты - clients
 try:
     cur.execute('CREATE TABLE clients (id serial PRIMARY KEY,' 
@@ -30,6 +30,7 @@ except Exception:
     print('base clients already exist!')
     conn.rollback()
 
+# cur.execute('DROP TABLE IF EXISTS animal_type;')
 #Вид животного - animal_type
 try:
     cur.execute('CREATE TABLE animal_type (id serial PRIMARY KEY,' 
@@ -41,6 +42,7 @@ except Exception:
     print('base animal_type already exist!')
     conn.rollback()
 
+# cur.execute('DROP TABLE IF EXISTS animals;')
 #Животные - animals
 try:
     cur.execute('CREATE TABLE animals (id serial PRIMARY KEY,' 
@@ -48,7 +50,7 @@ try:
                                  'kind varchar (200),'
                                  'poroda varchar (200),'
                                  'klichka varchar (200),'
-                                 'owner varchar (200),'
+                                 'client_code varchar (200),'
                                  'sex varchar (200),'
                                  'bday varchar (200),'
                                  'color varchar (200),'
@@ -59,6 +61,7 @@ except Exception:
     print('base animals already exist!')
     conn.rollback()
 
+# cur.execute('DROP TABLE IF EXISTS poroda;')
 #Порода - poroda
 try:
     cur.execute('CREATE TABLE poroda (id serial PRIMARY KEY,' 
@@ -71,6 +74,7 @@ except Exception:
     print('base poroda already exist!')
     conn.rollback()
 
+# cur.execute('DROP TABLE IF EXISTS journal;')
 #Жунрал - journal
 try:
     cur.execute('CREATE TABLE journal (id serial PRIMARY KEY,' 
@@ -84,6 +88,7 @@ except Exception:
     print('base journal already exist!')
     conn.rollback()
 
+# cur.execute('DROP TABLE IF EXISTS used_medical;')
 #Использованные медикаменты - used_medical
 try:
     cur.execute('CREATE TABLE used_medical (id serial PRIMARY KEY,' 
@@ -99,6 +104,7 @@ except Exception:
     print('base used_medical already exist!')
     conn.rollback()
 
+# cur.execute('DROP TABLE IF EXISTS current_uslugi;')
 #Оказанные услуги - current_uslugi
 try:
     cur.execute('CREATE TABLE current_uslugi (id serial PRIMARY KEY,' 
@@ -112,6 +118,7 @@ except Exception:
     print('base current_uslugi already exist!')
     conn.rollback()
 
+# cur.execute('DROP TABLE IF EXISTS uslugi;')
 #Услуги - uslugi
 try:
     cur.execute('CREATE TABLE uslugi (id serial PRIMARY KEY,' 
@@ -124,6 +131,7 @@ except Exception:
     print('base uslugi already exist!')
     conn.rollback()
 
+# cur.execute('DROP TABLE IF EXISTS medicaments;')
 #Услуги - medicaments
 try:
     cur.execute('CREATE TABLE medicaments (id serial PRIMARY KEY,' 
@@ -136,6 +144,7 @@ except Exception:
     print('base medicaments already exist!')
     conn.rollback()
 
+# cur.execute('DROP TABLE IF EXISTS workers;')
 #Услуги - workers
 try:
     cur.execute('CREATE TABLE workers (id serial PRIMARY KEY,' 
@@ -151,6 +160,19 @@ try:
 except Exception:
     print('base workers already exist!')
     conn.rollback()
+
+# cur.execute('DROP TABLE IF EXISTS rank;')
+#Услуги - rank
+try:
+    cur.execute('CREATE TABLE rank (id serial PRIMARY KEY,' 
+                                 'rank_code varchar (200),'
+                                 'name varchar (200),'
+                                 'date_added date DEFAULT CURRENT_TIMESTAMP);'
+                                 )
+except Exception:
+    print('base rank already exist!')
+    conn.rollback()
+
 conn.commit()
 cur.close()
 conn.close()
