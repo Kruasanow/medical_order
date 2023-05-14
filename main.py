@@ -11,8 +11,11 @@ def index():
         username = request.form['username']
         password = request.form['password']
         session['username'] = username
-
-        if username == 'dima' and password == 'pass':
+        from get_from_db import get_data_from_db
+        from hash import hashed_data
+        passw = str(get_data_from_db('clients','pass','name',username)).replace('[','').replace(']','').replace(')','').replace('(','').replace("'",'').replace(",",'')
+        password = hashed_data(password)
+        if passw == password:
             return redirect(url_for('secpage'), code=301)
         else:
             error = 'Invalid Credentials. Please try again.'
