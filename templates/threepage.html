@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Successful</title>
+    </head>
+    <body>
+        <h1>Login Successful</h1>
+        <p>Welcome, {{ username }}!</p>
+        <h4>Виды животных</h4>
+        <form method="POST" action="{{ url_for('threepage') }}">
+            <label for="animal_kind_code">Код вида:</label>
+            <br>
+            <input type="text" id="animal_kind_code" name="animal_kind_code">
+            <br>
+            <label for="kind_animal_name">Наименование вида:</label>
+            <br>
+            <input type="text" id="kind_animal_name" name="kind_animal_name">
+            <br>
+
+            <input type="submit" value="Отправить">
+        </form>
+
+        <h4>Оказанные услуги</h4>
+        <form method="POST" action="{{ url_for('threepage') }}">
+            <label for="num_in_journal">Номер в журнале:</label>
+            <br>
+            <input type="text" id="num_in_journal" name="num_in_journal">
+            <br>
+            <label for="worker">Сотрудник:</label>
+            <br>
+            <input type="text" id="worker" name="worker">
+            <br>
+            <label for="usluga_code">Код услуги:</label>
+            <br>
+            <input type="text" id="usluga_code" name="usluga_code">
+            <br>
+            <label for="quantity">Количество:</label>
+            <br>
+            <input type="text" id="quantity" name="quantity">
+            <br>
+
+            <input type="submit" value="Отправить">
+        </form>
+
+        <h4>Журнал посещений</h4>
+        <form method="POST" action="{{ url_for('threepage') }}">
+            <label for="journal_number">Номер в журнале:</label>
+            <br>
+            <input type="text" id="journal_number" name="journal_number">
+            <br>
+            <label for="date">Дата:</label>
+            <br>
+            <input type="text" id="date" name="date">
+            <br>
+            <label for="client">Клиент:</label>
+            <br>
+            <input type="text" id="client" name="client">
+            <br>
+            <label for="animal_code">Код животного:</label>
+            <br>
+            <input type="text" id="animal_code" name="animal_code">
+            <br>
+
+            <input type="submit" value="Отправить">
+        </form>
+
+        <h4>Медикаменты</h4>
+        <form method="POST" action="{{ url_for('threepage') }}">
+            <label for="medicament_code">Код медикамента:</label>
+            <br>
+            <input type="text" id="medicament_code" name="medicament_code">
+            <br>
+            <label for="medicament_name">Наименование:</label>
+            <br>
+            <input type="text" id="medicament_name" name="medicament_name">
+            <br>
+            <label for="description">Описание:</label>
+            <br>
+            <input type="text" id="description" name="description">
+            <br>
+
+            <input type="submit" value="Отправить">
+        </form>
+
+        <h4>Породы</h4>
+        <form method="POST" action="{{ url_for('threepage') }}">
+            <label for="poroda_code">Код породы:</label>
+            <br>
+            <input type="text" id="poroda_code" name="poroda_code">
+            <br>
+            <label for="kind_of_animal">Вид животного:</label>
+            <br>
+            <input type="text" id="kind_of_animal" name="kind_of_animal">
+            <br>
+            <label for="porodas_name">Наименование породы:</label>
+            <br>
+            <input type="text" id="porodas_name" name="porodas_name">
+            <br>
+
+            <input type="submit" value="Отправить">
+        </form>
+
+        <h4>Должности</h4>
+        <form method="POST" action="{{ url_for('threepage') }}">
+            <label for="rank_code">Код должности:</label>
+            <br>
+            <input type="text" id="rank_code" name="rank_code">
+            <br>
+            <label for="name">Наименование:</label>
+            <br>
+            <input type="text" id="name" name="name">
+            <br>
+
+            <input type="submit" value="Отправить">
+        </form>
+        
+        <h4>Использованные медикаменты</h4>
+        <form method="POST" action="{{ url_for('threepage') }}">
+            <label for="jnumber">Номер журнала:</label>
+            <br>
+            <input type="text" id="jnumber" name="jnumber">
+            <br>
+            <label for="njournal">Номер в журнале посещений:</label>
+            <br>
+            <input type="text" id="njournal" name="njournal">
+            <br>
+            <label for="medical_code">Код медикамента:</label>
+            <br>
+            <input type="text" id="medical_code" name="medical_code">
+            <br>
+            <label for="aem">Ед. изм.:</label>
+            <br>
+            <input type="text" id="aem" name="aem">
+            <br>
+            <label for="price">Цена:</label>
+            <br>
+            <input type="text" id="price" name="price">
+            <br>
+            <label for="quantity">Количество:</label>
+            <br>
+            <input type="text" id="quantity" name="quantity">
+            <br>
+
+            <input type="submit" value="Отправить">
+        </form>
+
+        <h4>Услуги</h4>
+        <form method="POST" action="{{ url_for('threepage') }}">
+            <label for="usluga_code">Код услуги:</label>
+            <br>
+            <input type="text" id="usluga_code" name="usluga_code">
+            <br>
+            <label for="usluga_name">Наименование услуги:</label>
+            <br>
+            <input type="text" id="usluga_name" name="usluga_name">
+            <br>
+            <label for="price">Цена:</label>
+            <br>
+            <input type="text" id="price" name="price">
+            <br>
+
+            <input type="submit" value="Отправить">
+        </form>
+
+        <h4>Сотрудники</h4>
+        <form method="POST" action="{{ url_for('threepage') }}">
+            <label for="worker_code">Код Сотрудника:</label>
+            <br>
+            <input type="text" id="worker_code" name="worker_code">
+            <br>
+            <label for="name">ФИО:</label>
+            <br>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="address">Адресс:</label>
+            <br>
+            <input type="text" id="address" name="address">
+            <br>
+            <label for="phone">Телефон:</label>
+            <br>
+            <input type="text" id="phone" name="phone">
+            <br>
+            <label for="email">email:</label>
+            <br>
+            <input type="text" id="email" name="email">
+            <br>
+            <label for="description">Примечание:</label>
+            <br>
+            <input type="text" id="description" name="description">
+            <br>
+            <label for="rank">Должность:</label>
+            <br>
+            <input type="text" id="rank" name="rank">
+            <br>
+
+            <input type="submit" value="Отправить">
+        </form>
+    </body>
+</html>
