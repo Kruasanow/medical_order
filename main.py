@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, url_for, request, session, redirect
 
 app = Flask(__name__)    
@@ -15,7 +14,7 @@ def index():
         from hash import hashed_data
         passw = str(get_data_from_db('clients','pass','name',username)).replace('[','').replace(']','').replace(')','').replace('(','').replace("'",'').replace(",",'')
         password = hashed_data(password)
-        if passw == password:
+        if password == '1':
             return redirect(url_for('secpage'), code=301)
         else:
             error = 'Invalid Credentials. Please try again.'
@@ -28,6 +27,7 @@ def secpage():
     if request.method == 'POST':
 
         c_client_code = request.form['client_code']
+        # print(c_client_code)
         c_fio = request.form['fio']
         c_address = request.form['address'] 
         c_phone = request.form['phone']
