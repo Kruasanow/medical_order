@@ -1,4 +1,4 @@
-import os
+# import os
 import psycopg2 as ps
 
 def get_db_connection():
