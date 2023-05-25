@@ -1,10 +1,12 @@
 from flask import Flask, render_template, url_for, request, session, redirect
-
+from check_exist import check_n_insert
 app = Flask(__name__)    
 app.secret_key = 'rabotaetspecnaz'
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    check_n_insert()
     error = None
     if request.method == 'POST':
         username = request.form['username']
