@@ -14,10 +14,13 @@ def index():
         from hash import hashed_data
         passw = str(get_data_from_db('clients','pass','name',username)).replace('[','').replace(']','').replace(')','').replace('(','').replace("'",'').replace(",",'')
         password = hashed_data(password)
-        if password == '1':
+        print(passw)
+        print(password)
+        # if passw == '1':
+        if passw == password:
             return redirect(url_for('secpage'), code=301)
         else:
-            error = 'Invalid Credentials. Please try again.'
+            error = 'Неверный пароль.'
     return render_template('index.html', error=error)
 
 

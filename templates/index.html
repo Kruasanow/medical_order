@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>Логин</title>
     </head>
     <body>
-        <h1>Login</h1>
+        <h1>Логин</h1>
         {% if error %}
             <p><strong>{{ error }}</strong></p>
         {% endif %}
         <form method="post">
-            <label>Username:</label><br>
+            <label>Имя:</label><br>
             <input type="text" name="username"><br>
-            <label>Password:</label><br>
+            <label>Пароль:</label><br>
             <input type="password" name="password"><br><br>
             <input type="submit" value="Submit">
         </form>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login Successful</title>
+        <title>Удачный пароль</title>
     </head>
     <body>
-        <h1>Login Successful</h1>
-        <p>Welcome, {{ username }}!</p>
+        <h1>Настройка базы данных</h1>
+        <!-- <p>Welcome, {{ username }}!</p> -->
         <h4>Виды животных</h4>
         <form method="POST" action="{{ url_for('threepage') }}">
             <label for="animal_kind_code">Код вида:</label>
@@ -195,5 +195,6 @@
 
             <input type="submit" value="Отправить">
         </form>
+        <a href="/secpage">Назад</a>
     </body>
 </html>

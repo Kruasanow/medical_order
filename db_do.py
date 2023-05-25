@@ -3,8 +3,8 @@ import psycopg2 as ps
 
 def get_db_connection():
     conn = ps.connect(host='localhost',
-                      database='postgres',
-                      user='postgres',
+                      database='medical_db', #postgres
+                      user='anna',           #postgres
                       password='anna'
                     )
     return conn

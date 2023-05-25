@@ -2,11 +2,11 @@
 <html>
     <head>
         <script src="{{ url_for('static', filename='js/q.js')}}" type="text/javascript"></script>
-        <title>Login Successful</title>
+        <title>Удачный пароль</title>
     </head>
     <body>
-        <h1>Login Successful</h1>
-        <p>Welcome, {{ username }}!</p>
+        <h1>Авторизация прошла успешно</h1>
+        <p>Добро пожаловать, {{ username }}!</p>
 
         <form name="hhh" method="POST" action="{{ url_for('secpage') }}" onsubmit="DoSubmit()">
             <label for="client_code">Код клиента:</label>
@@ -67,6 +67,6 @@
             <br>
             <input type="submit" value="Отправить">
         </form>
-        
+        <a href="/threepage">Перейти к настройка БД</a>
     </body>
 </html>
