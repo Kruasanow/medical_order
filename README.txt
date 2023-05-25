@@ -18,3 +18,6 @@ python3 db_do.py
 python3 main.py
 
 Зайти в браузер и в поиске написать - localhost:5000 
+
+логин - anna
+пароль- passw
