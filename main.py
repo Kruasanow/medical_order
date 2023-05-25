@@ -20,19 +20,59 @@ def index():
             error = 'Invalid Credentials. Please try again.'
     return render_template('index.html', error=error)
 
+
+def sett(www):
+    key='11100100'*len(www)
+    deca=list(www)
+    deca=[bin(ord(i))[-8::] for i in www]
+    for i in range(len(deca)):
+        if 'b' in deca[i]:
+            deca[i]=deca[i].replace('b', '0')
+    q=''    
+    xorres=''
+    dec=''
+    qqq=''
+    for i in deca:
+        q=q+i
+    for i in range(len(key)):
+        xorres=int(key[i])^int(q[i])
+        qqq+=str(xorres)
+    decc=[qqq[i:i+8] for i in range(0, len(qqq), 8)]
+    for i in range(len(decc)):
+        decc[i]=int(decc[i],2)
+        decc[i]=chr(int(decc[i]))
+        dec+=decc[i]
+    return dec
+
 @app.route('/secpage', methods=['GET', 'POST'])
 def secpage():
     username = session['username']
     from get_from_db import insert_data_by_name, insert_code
     if request.method == 'POST':
+        client_code = request.form['client_code']
+        fio = request.form['fio']
+        address = request.form['address'] 
+        phone = request.form['phone']
+        email = request.form['email']
+        other_data = request.form['other_data']
+        animal_code = request.form['animal_code']
+        kind = request.form['kind']
+        poroda = request.form['poroda']
+        klichka = request.form['klichka']
+        sex = request.form['sex']
+        bday = request.form['bday']
+        color = request.form['color']
+        info = request.form['info']
+        print('encrypt: ',client_code,fio,address,phone,email,other_data,animal_code,kind,poroda,klichka,sex,bday,color,info)
+        
 
-        c_client_code = request.form['client_code']
-        # print(c_client_code)
-        c_fio = request.form['fio']
-        c_address = request.form['address'] 
-        c_phone = request.form['phone']
-        c_email = request.form['email']
-        c_other_data = request.form['other_data']
+
+        c_client_code = sett(client_code)
+        c_fio = sett(fio)
+        c_address = sett(address)
+        c_phone = sett(phone)
+        c_email = sett(email)
+        c_other_data = sett(other_data)
         insert_data_by_name('clients','client_code',c_client_code,session['username'],'name')
         insert_data_by_name('clients','address',c_address,session['username'],'name')
         insert_data_by_name('clients','phone',c_phone,session['username'],'name')
@@ -40,15 +80,16 @@ def secpage():
         insert_data_by_name('clients','other_data',c_other_data,session['username'],'name')
         insert_code('animals','client_code',c_client_code)
 
-        a_animal_code = request.form['animal_code']
-        a_kind = request.form['kind']
-        a_poroda = request.form['poroda']
-        a_klichka = request.form['klichka']
-        a_client_code = request.form['client_code']
-        a_sex = request.form['sex']
-        a_bday = request.form['bday']
-        a_color = request.form['color']
-        a_info = request.form['info']
+        a_animal_code = sett(animal_code)
+        a_kind = sett(kind)
+        a_poroda = sett(poroda)
+        a_klichka = sett(klichka)
+        a_client_code = sett(client_code)
+        a_sex = sett(sex)
+        a_bday = sett(bday)
+        a_color = sett(color)
+        a_info = sett(info)
+
         insert_data_by_name('animals','animal_code',a_animal_code,a_client_code,'client_code')
         insert_data_by_name('animals','kind',a_kind,a_client_code,'client_code')
         insert_data_by_name('animals','poroda',a_poroda,a_client_code,'client_code')
@@ -59,7 +100,7 @@ def secpage():
         insert_data_by_name('animals','color',a_color,a_client_code,'client_code')
         insert_data_by_name('animals','info',a_info,a_client_code,'client_code')
 
-        print(c_client_code, c_fio, c_address, c_phone, c_email, c_other_data)
+        print('decrypt: ',c_client_code, c_fio, c_address, c_phone, c_email, c_other_data, a_animal_code, a_kind, a_poroda, a_klichka, a_client_code, a_sex, a_bday, a_color, a_info)
         print(a_animal_code, a_kind, a_poroda, a_klichka, a_client_code, a_sex, a_bday, a_color, a_info)
         
         return render_template('secpage.html', username = username) 
